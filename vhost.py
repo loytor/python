@@ -5,6 +5,7 @@
 # @date:2016-02-17 17:55
 
 import os
+
 if os.getenv("USER") != 'root' :
 	print '------------------------------------------------------------------------'
 	print '⚠️ 权限不足，需要root用户权限'
@@ -50,6 +51,11 @@ else :
 		f.close()
 		print 'host写入完成...'
 		print '------------------------------------------------------------------------'
+
+		chmod = raw_input('修改文件目录权限(y/n):')
+		if chmod == 'y' :
+			print '⌛ 修改文件目录权限⌛️'
+			os.system('chmod -R 755 ' + path)
 
 		reboot = raw_input('是否重启Apache(y/n):')
 		if reboot == 'y':
